@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lengko Rice Empat Saudara (LK) — Nasi Lengko Khas Cirebon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F7F1E4;
+    --bg-alt: #EEE3C8;
+    --ink: #1B2119;
+    --ink-soft: #4B5245;
+    --green-deep: #21402C;
+    --green-mid: #35573D;
+    --brown-peanut: #96602B;
+    --red-chili: #B93B22;
+    --line: #DCCFA9;
+    --card: #FFFCF4;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; color:var(--green-deep);}
+  a{color:inherit;}
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--brown-peanut);
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--brown-peanut);}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,241,228,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px; max-width:1120px; margin:0 auto;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif; font-weight:700; font-size:20px; color:var(--green-deep);
+  }
+  .logo-mark{
+    width:34px; height:34px; border-radius:50%;
+    background:conic-gradient(var(--red-chili) 0 20%, var(--brown-peanut) 20% 45%, var(--green-mid) 45% 65%, #E8B84B 65% 82%, var(--red-chili) 82% 100%);
+    border:2px solid var(--green-deep);
+  }
+  .navlinks{display:flex; gap:30px; font-size:14.5px; font-weight:500;}
+  .navlinks a{text-decoration:none; color:var(--ink-soft); transition:color .2s;}
+  .navlinks a:hover{color:var(--red-chili);}
+  .nav-cta{
+    background:var(--green-deep); color:#F7F1E4; padding:10px 20px; border-radius:100px;
+    font-size:13.5px; font-weight:600; text-decoration:none; white-space:nowrap;
+  }
+  @media(max-width:820px){ .navlinks{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:76px 32px 60px;
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+    max-width:1120px; margin:0 auto;
+  }
+  .hero h1{
+    font-size:clamp(40px,6vw,64px); line-height:1.03; margin:18px 0 20px;
+  }
+  .hero h1 em{font-style:italic; color:var(--red-chili);}
+  .hero p.lead{font-size:17.5px; color:var(--ink-soft); max-width:460px; margin-bottom:30px;}
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    padding:14px 26px; border-radius:100px; font-weight:700; font-size:14.5px;
+    text-decoration:none; display:inline-flex; align-items:center; gap:8px; border:1.5px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--red-chili); color:#FFF9EF; box-shadow:0 6px 0 #7E2A18;}
+  .btn-primary:hover{box-shadow:0 8px 0 #7E2A18;}
+  .btn-ghost{border-color:var(--green-deep); color:var(--green-deep);}
+
+  .hero-visual{position:relative; display:flex; justify-content:center;}
+  .plate-mini{width:100%; max-width:380px;}
+
+  .stat-row{display:flex; gap:34px; margin-top:38px; padding-top:26px; border-top:1px solid var(--line); max-width:460px;}
+  .stat b{font-family:'Fraunces', serif; font-size:26px; color:var(--green-deep); display:block;}
+  .stat span{font-size:12.5px; color:var(--ink-soft);}
+
+  /* ---------- SECTION shared ---------- */
+  section{padding:86px 32px;}
+  .section-head{max-width:620px; margin-bottom:48px;}
+  .section-head h2{font-size:clamp(28px,4vw,40px); margin-top:14px;}
+
+  /* ---------- TENTANG ---------- */
+  .tentang{background:var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .tentang-grid{
+    max-width:1120px; margin:0 auto;
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; align-items:center;
+  }
+  .founder-card{
+    background:var(--card); border:1px solid var(--line); border-radius:18px; padding:30px;
+    box-shadow:0 14px 0 -6px rgba(33,64,44,0.08);
+  }
+  .founder-card .eyebrow{margin-bottom:14px;}
+  .founder-card p{color:var(--ink-soft); font-size:15px; margin-bottom:14px;}
+  .founder-name{font-family:'Fraunces', serif; font-weight:600; color:var(--green-deep); font-size:18px;}
+  .tentang-copy p{color:var(--ink-soft); margin-bottom:16px; font-size:15.5px;}
+  .tentang-copy p:first-of-type{font-size:19px; color:var(--ink); font-family:'Fraunces', serif; font-weight:500;}
+
+  /* ---------- MENU ---------- */
+  .menu-grid{
+    max-width:1120px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+  }
+  .menu-card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px;
+    display:flex; flex-direction:column; gap:10px; transition:border-color .2s, transform .2s;
+  }
+  .menu-card:hover{border-color:var(--red-chili); transform:translateY(-4px);}
+  .menu-tag{
+    font-family:'Space Mono', monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--green-mid); background:rgba(53,87,61,0.09); padding:4px 10px; border-radius:100px; width:fit-content;
+  }
+  .menu-card h3{font-size:20px; margin-top:2px;}
+  .menu-card p{font-size:14px; color:var(--ink-soft); flex-grow:1;}
+  .menu-price{
+    font-family:'Space Mono', monospace; font-weight:700; color:var(--red-chili); font-size:17px;
+    padding-top:10px; border-top:1px dashed var(--line);
+  }
+  @media(max-width:900px){ .menu-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:620px){ .menu-grid, .tentang-grid, .hero{grid-template-columns:1fr;} }
+
+  /* ---------- PIRING LENGKO INTERAKTIF (signature) ---------- */
+  .piring-section{background:var(--green-deep); color:#F7F1E4; border-radius:28px; margin:0 auto; max-width:1120px;}
+  .piring-section .section-head h2, .piring-section .section-head p{color:#F7F1E4;}
+  .piring-section .eyebrow{color:#E8B84B;}
+  .piring-section .eyebrow::before{background:#E8B84B;}
+  .piring-grid{
+    display:grid; grid-template-columns:0.95fr 1.05fr; gap:50px; align-items:center;
+  }
+  #plateSvg{width:100%; max-width:420px; cursor:pointer;}
+  .wedge{transition:opacity .2s, transform .2s; transform-origin:210px 210px;}
+  .wedge:hover, .wedge.active{opacity:0.85; transform:scale(1.035);}
+  .plate-center-label{font-family:'Space Mono', monospace; font-size:11px; fill:#F7F1E4; text-transform:uppercase; letter-spacing:.06em;}
+  .info-panel{
+    background:rgba(247,241,228,0.06); border:1px solid rgba(247,241,228,0.18);
+    border-radius:18px; padding:30px; min-height:210px;
+  }
+  .info-panel .ing-name{font-family:'Fraunces', serif; font-size:26px; margin-bottom:10px; color:#F7F1E4;}
+  .info-panel .ing-desc{color:#D9D2BC; font-size:15px;}
+  .ing-list{display:flex; flex-wrap:wrap; gap:8px; margin-top:22px;}
+  .ing-chip{
+    font-family:'Space Mono', monospace; font-size:11.5px; padding:6px 12px; border-radius:100px;
+    border:1px solid rgba(247,241,228,0.3); color:#F7F1E4; cursor:pointer; background:transparent;
+  }
+  .ing-chip.active{background:#E8B84B; color:var(--green-deep); border-color:#E8B84B; font-weight:700;}
+  @media(max-width:820px){ .piring-grid{grid-template-columns:1fr;} }
+
+  /* ---------- TESTIMONI ---------- */
+  .testi-grid{max-width:1120px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .testi-card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px;}
+  .testi-card p{font-size:14.5px; color:var(--ink-soft); margin-bottom:18px;}
+  .testi-name{font-weight:700; font-size:14px; color:var(--green-deep);}
+  .testi-role{font-size:12.5px; color:var(--ink-soft);}
+  @media(max-width:900px){ .testi-grid{grid-template-columns:1fr;} }
+
+  /* ---------- KONTAK ---------- */
+  .kontak{background:var(--bg-alt); border-top:1px solid var(--line);}
+  .kontak-grid{max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  .kontak-card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:32px;}
+  .kontak-row{display:flex; gap:14px; margin-bottom:18px;}
+  .kontak-row .ic{width:20px; text-align:center; font-family:'Space Mono', monospace; color:var(--brown-peanut);}
+  .kontak-row div b{display:block; font-size:14.5px; margin-bottom:2px;}
+  .kontak-row div span{font-size:14px; color:var(--ink-soft);}
+  .map-box{
+    border-radius:18px; border:1px solid var(--line); min-height:100%;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(33,64,44,0.06) 28px),
+      repeating-linear-gradient(90deg, transparent, transparent 27px, rgba(33,64,44,0.06) 28px),
+      var(--card);
+    display:flex; align-items:center; justify-content:center; padding:20px; text-align:center;
+  }
+  .map-box .pin{font-family:'Fraunces', serif; font-size:15px; color:var(--green-deep);}
+
+  footer{padding:36px 32px; text-align:center; font-size:13px; color:var(--ink-soft); border-top:1px solid var(--line);}
+  footer b{color:var(--green-deep);}
+
+  /* ---------- GALERI ---------- */
+  #gallery .section-head{margin-left:auto; margin-right:auto; text-align:center;}
+  #gallery .eyebrow{justify-content:center;}
+  .gallery-grid{
+    max-width:820px; margin:0 auto;
+    display:grid; grid-template-columns:1fr 1fr; gap:28px;
+  }
+  .gallery-frame{
+    background:var(--card); border:10px solid var(--card); outline:1px solid var(--line);
+    border-radius:14px; box-shadow:0 14px 0 -6px rgba(33,64,44,0.08);
+    overflow:hidden; aspect-ratio:4/3;
+  }
+  .gallery-frame img{width:100%; height:100%; object-fit:cover; display:block;}
+  @media(max-width:620px){ .gallery-grid{grid-template-columns:1fr;} }
+
+  ::selection{background:#E8B84B; color:var(--green-deep);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo"><span class="logo-mark"></span> Nasi Lengko Empat Saudara <span style="font-weight:400;color:var(--brown-peanut);font-size:14px;">(LK)</span></div>
+    <div class="navlinks">
+      <a href="#tentang">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#piring">Plates of Nasi Lengko</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#kontak">Contact</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/6282125085472?text=Halo%20Lengko%20Rice%2C%20saya%20mau%20pesan" target="_blank" rel="noopener">Order Now</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="eyebrow">Aunthentic By Cirebon</div>
+    <h1>One Plate,<br>All the<em>flavors</em> of Cirebon.</h1>
+    <p class="lead">Nasi Lengko Empat Saudara has been serving authentic Cirebon-style Lengko Rice since the early morning, featuring a homemade peanut sauce recipe that is hearty, flavorful, and budget-friendly..</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://wa.me/6282125085472?text=Halo%20Lengko%20Rice%2C%20saya%20mau%20pesan" target="_blank" rel="noopener">Order Via WhatsApp</a>
+      <a class="btn btn-ghost" href="#menu">View Menu</a>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><b>7+</b><span>Years in Business</span></div>
+      <div class="stat"><b>9</b><span>Carefully Selected Ingredients in Every Plate</span></div>
+      <div class="stat"><b>07.30</b><span>Open Every Morning</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <svg class="plate-mini" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="150" cy="150" r="146" fill="#FFFCF4" stroke="#DCCFA9" stroke-width="2"/>
+      <circle cx="150" cy="150" r="118" fill="none" stroke="#DCCFA9" stroke-width="1.5" stroke-dasharray="3 5"/>
+      <g opacity="0.95">
+        <path d="M150 150 L150 32 A118 118 0 0 1 246 90 Z" fill="#E8B84B"/>
+        <path d="M150 150 L246 90 A118 118 0 0 1 246 210 Z" fill="#96602B"/>
+        <path d="M150 150 L246 210 A118 118 0 0 1 150 268 Z" fill="#35573D"/>
+        <path d="M150 150 L150 268 A118 118 0 0 1 54 210 Z" fill="#B93B22"/>
+        <path d="M150 150 L54 210 A118 118 0 0 1 54 90 Z" fill="#E3D9B8"/>
+        <path d="M150 150 L54 90 A118 118 0 0 1 150 32 Z" fill="#7C9473"/>
+      </g>
+      <circle cx="150" cy="150" r="34" fill="#FFFCF4" stroke="#DCCFA9" stroke-width="2"/>
+    </svg>
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section class="tentang" id="tentang">
+  <div class="tentang-grid">
+    <div class="founder-card">
+      <div class="eyebrow">From Our Home Kitchen</div>
+      <p class="founder-name">Putra, Dany, Belva, Jhoni, Co-Founder Nasi Lengko Empat Saudara</p>
+      <p>"We developed this recipe together, refining the peanut sauce little by little over the years until it became the signature flavor we proudly serve today."</p>
+    </div>
+    <div class="tentang-copy">
+      <p>Nasi Lengko Empat Saudara.</p>
+      <p>brings the authentic taste of Cirebon's traditional cuisine, preserving the original flavors that have been cherished since the very beginning. Made with carefully selected fresh ingredients and our signature peanut sauce, every serving is prepared fresh to ensure the highest quality and taste.</p>
+      <p>By staying true to our traditional recipe, we are committed to serving delicious, wholesome, and authentic nasi lengko that can be enjoyed by everyone..</p>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="section-head">
+    <div class="eyebrow">Our Menu</div>
+    <h2>Something for Every Taste</h2>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <span class="menu-tag">Best Seller</span>
+      <h3>Original Lengko Rice</h3>
+      <p>A hearty combination of steamed rice, fried tofu, crispy tempeh, fresh bean sprouts, cucumber, rice vermicelli, topped with our signature homemade peanut sauce, crackers, and crispy fried shallots.</p>
+      <div class="menu-price">Rp 15.000</div>
+    </div>
+    <div class="menu-card">
+      <span class="menu-tag">Favorit</span>
+      <h3>Lengko Rice with Fried Egg</h3>
+      <p>Our original Lengko Rice topped with a savory fried egg for an extra layer of flavor and satisfaction.</p>
+      <div class="menu-price">Rp 18.000</div>
+    </div>
+    <div class="menu-card">
+      <span class="menu-tag">Complete</span>
+      <h3>Complete Lengko Rice with Fried Chicken</h3>
+      <p>Our most complete serving of Lengko Rice, accompanied by Indonesian yellow-spiced fried chicken for a hearty and satisfying meal.</p>
+      <div class="menu-price">Rp 25.000</div>
+    </div>
+    <div class="menu-card">
+      <span class="menu-tag">Beverages</span>
+      <h3>Iced Sweet Tea / Unsweetened Iced Tea</h3>
+      <p>The perfect companion to balance the rich, savory flavor of our signature peanut sauce..</p>
+      <div class="menu-price">Rp 5.000</div>
+    </div>
+    <div class="menu-card">
+      <span class="menu-tag">Extras</span>
+      <h3>Extra Crackers</h3>
+      <p>An extra serving of crispy crackers for those who can never get enough.</p>
+      <div class="menu-price">Rp 3.000</div>
+    </div>
+  </div>
+</section>
+
+<!-- PIRING LENGKO INTERAKTIF -->
+<section id="piring">
+  <div class="piring-section" style="padding:64px 40px;">
+    <div class="section-head">
+      <div class="eyebrow">Know What's on Your Plate</div>
+      <h2>Interactive Lengko Plate</h2>
+      <p style="margin-top:10px;">Tap or hover over each part of the plate to discover the ingredients that make Lengko Rice so unique.</p>
+    </div>
+    <div class="piring-grid">
+      <svg id="plateSvg" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="210" cy="210" r="204" fill="rgba(247,241,228,0.05)" stroke="rgba(247,241,228,0.25)" stroke-width="1.5"/>
+        <!-- wedges: 9 bahan, sudut 40 derajat masing-masing, mulai dari atas (-90deg) -->
+        <g id="wedgeGroup"></g>
+        <circle cx="210" cy="210" r="62" fill="#1B3125" stroke="#E8B84B" stroke-width="1.5"/>
+        <text id="centerLabel" x="210" y="205" text-anchor="middle" class="plate-center-label">Choose</text>
+        <text id="centerLabel2" x="210" y="222" text-anchor="middle" class="plate-center-label">Ingredients</text>
+      </svg>
+      <div>
+        <div class="info-panel" id="infoPanel">
+          <div class="ing-name" id="ingName">Peanut Sauce</div>
+          <div class="ing-desc" id="ingDesc">The signature seasoning of Lengko Rice — a rich peanut sauce made from ground roasted peanuts, garlic, chilies, palm sugar, and a touch of sweet soy sauce. It gives the dish its distinctive savory-sweet flavor.</div>
+        </div>
+        <div class="ing-list" id="ingList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section id="testimoni">
+  <div class="section-head">
+    <div class="eyebrow">What Our Customers Say</div>
+    <h2>What Keeps Our Customers Coming Back</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <p>"The peanut sauce is unlike any other richer, more savory, and not overly sweet. It's my go-to breakfast before work.."</p>
+      <div class="testi-name">Dimas R.</div>
+      <div class="testi-role">Customer Since 2021</div>
+    </div>
+    <div class="testi-card">
+      <p>"The portion is just right, and the price is student friendly. The complete meal with fried chicken is the best!."</p>
+      <div class="testi-name">Sri Handayani</div>
+      <div class="testi-role">Loyal Customer</div>
+    </div>
+    <div class="testi-card">
+      <p>"SI ordered online for an office event, and everyone loved it. The taste is consistently great every time I order."</p>
+      <div class="testi-name">Fajar A.</div>
+      <div class="testi-role">Pemesan acara kantor</div>
+    </div>
+  </div>
+</section>
+<section id="gallery">
+  <div class="section-head">
+    <div class="eyebrow">A Glimpse of Us</div>
+    <h2>Galeri</h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-frame">
+      <img src="img/WhatsApp Image 2026-07-08 at 20.14.39.jpeg" alt="Nasi Lengko Empat Saudara">
+    </div>
+    <div class="gallery-frame">
+      <!-- Foto belum diisi, sementara pakai gambar random dari internet. Ganti src di bawah ini dengan foto asli. -->
+      <img src="img/c6f18c56-dd51-4945-86f2-2a4d0e96b0a0.jpg" alt="Foto galeri - segera diganti">
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section class="kontak" id="kontak">
+  <div class="section-head">
+    <div class="eyebrow">Order Now</div>
+    <h2>Dine In or Order for Delivery</h2>
+  </div>
+  <div class="kontak-grid">
+    <div class="kontak-card">
+      <div class="kontak-row"><div class="ic">◉</div><div><b>Address</b><span>Jl. Kesambi Raya No. 12, Cirebon, Jawa Barat</span></div></div>
+      <div class="kontak-row"><div class="ic">✆</div><div><b>WhatsApp</b><span>0821-2508-5472</span></div></div>
+      <div class="kontak-row"><div class="ic">⏱</div><div><b>Opening Hours</b><span>Every Day, 07.30 – 17.00 WIB</span></div></div>
+      <div class="kontak-row"><div class="ic">✉</div><div><b>Instagram</b><span>@lengkorice.ck</span></div></div>
+      <a class="btn btn-primary" style="margin-top:10px; width:100%; justify-content:center;" href="https://wa.me/6282125085472?text=Halo%20Lengko%20Rice%2C%20saya%20mau%20pesan" target="_blank" rel="noopener">Chat WhatsApp Sekarang</a>
+    </div>
+    <div class="map-box">
+      <div>
+        <div class="pin">📍 Nasi Lengko Empat Saudara (LK)</div>
+        <div style="font-size:12.5px; color:var(--ink-soft); margin-top:6px;">Location Map</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 <b>Nasi Lengko Empat Saudara (LK)</b> — Nasi lengko khas Cirebon, From Our Home Kitchen to Your Table.
+</footer>
+
+<script>
+  const ingredients = [
+    {name:"Nasi", desc:"Alas utama piring lengko — nasi putih pulen sebagai dasar sebelum ditata bahan-bahan lain di atasnya.", color:"#E8B84B"},
+    {name:"Tahu Goreng", desc:"Potongan tahu yang digoreng hingga permukaannya sedikit renyah, memberi tekstur lembut di dalam.", color:"#96602B"},
+    {name:"Tempe Goreng", desc:"Tempe iris tipis yang digoreng kering, menambah rasa gurih dan tekstur renyah.", color:"#5C3B1E"},
+    {name:"Tauge Rebus", desc:"Tauge segar yang direbus sebentar agar tetap renyah, memberi kesegaran di setiap suapan.", color:"#35573D"},
+    {name:"Bihun", desc:"Bihun rebus yang menambah tekstur kenyal dan membuat porsi lebih mengenyangkan.", color:"#7C9473"},
+    {name:"Timun", desc:"Irisan timun segar yang menyeimbangkan rasa gurih dan pedas dari bahan lainnya.", color:"#4E7A5C"},
+    {name:"Sambal Kacang", desc:"Bumbu utama nasi lengko — kacang tanah goreng yang digiling dengan bawang putih, cabai, gula merah, dan sedikit kecap manis. Inilah yang memberi rasa gurih-manis khasnya.", color:"#B93B22"},
+    {name:"Kerupuk", desc:"Kerupuk renyah yang ditaburkan di atas, menambah tekstur garing sebagai pelengkap.", color:"#D9A441"},
+    {name:"Bawang Goreng", desc:"Taburan bawang goreng di lapisan paling atas, memberi aroma harum yang menggugah selera.", color:"#C77B2E"}
+  ];
+
+  const svgNS = "http://www.w3.org/2000/svg";
+  const wedgeGroup = document.getElementById("wedgeGroup");
+  const cx = 210, cy = 210, r = 200;
+  const n = ingredients.length;
+  const angleStep = 360 / n;
+
+  function polar(cx, cy, r, angleDeg){
+    const a = (angleDeg - 90) * Math.PI / 180;
+    return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+  }
+
+  ingredients.forEach((ing, i) => {
+    const startAngle = i * angleStep;
+    const endAngle = startAngle + angleStep;
+    const [x1, y1] = polar(cx, cy, r, startAngle);
+    const [x2, y2] = polar(cx, cy, r, endAngle);
+    const largeArc = angleStep > 180 ? 1 : 0;
+    const d = `M ${cx} ${cy} L ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 ${largeArc} 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z`;
+    const path = document.createElementNS(svgNS, "path");
+    path.setAttribute("d", d);
+    path.setAttribute("fill", ing.color);
+    path.setAttribute("class", "wedge");
+    path.setAttribute("stroke", "#1B3125");
+    path.setAttribute("stroke-width", "2");
+    path.dataset.index = i;
+    path.addEventListener("mouseenter", () => selectIngredient(i));
+    path.addEventListener("click", () => selectIngredient(i));
+    wedgeGroup.appendChild(path);
+  });
+
+  const ingList = document.getElementById("ingList");
+  ingredients.forEach((ing, i) => {
+    const chip = document.createElement("button");
+    chip.className = "ing-chip";
+    chip.textContent = ing.name;
+    chip.addEventListener("click", () => selectIngredient(i));
+    ingList.appendChild(chip);
+  });
+
+  function selectIngredient(i){
+    const ing = ingredients[i];
+    document.getElementById("ingName").textContent = ing.name;
+    document.getElementById("ingDesc").textContent = ing.desc;
+    document.getElementById("centerLabel").textContent = ing.name.split(" ")[0];
+    document.getElementById("centerLabel2").textContent = ing.name.split(" ")[1] || "";
+    document.querySelectorAll(".wedge").forEach(w => w.classList.remove("active"));
+    document.querySelector(`.wedge[data-index='${i}']`).classList.add("active");
+    document.querySelectorAll(".ing-chip").forEach((c, idx) => c.classList.toggle("active", idx === i));
+  }
+
+  selectIngredient(6); // default: Sambal Kacang
+</script>
+
+</body>
+</html>
